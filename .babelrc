@@ -2,6 +2,8 @@
     "presets": [
         "env",
         "react",
+        "stage-3",
         "flow"
-    ]
+    ],
+    "plugins": ["transform-runtime"]
 }
