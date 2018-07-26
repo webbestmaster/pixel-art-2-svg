@@ -4,7 +4,7 @@
   "description": "pixel art to svg",
   "main": "dist/index.js",
   "scripts": {
-    "start": "nodemon src/index.js --exec babel-node",
+    "start": "nodemon src/dev.js --exec babel-node",
     "build": "babel ./src -d ./dist",
     "check": "npm run eslint; npm run flow;",
     "check:fix": "npm run prettier; npm run eslint:fix; npm run flow;",
@@ -13,7 +13,8 @@
     "flow": "flow",
     "flow-stop": "flow stop",
     "prettier": "prettier --write \"./**/*.js\"",
-    "test": "mocha --require babel-core/register"
+    "test": "mocha --require babel-core/register",
+    "svg0": "svgo ./src/swords.svg"
   },
   "repository": {
     "type": "git",
@@ -25,7 +26,9 @@
     "url": "https://github.com/webbestmaster/pixel-art-2-svg/issues"
   },
   "homepage": "https://github.com/webbestmaster/pixel-art-2-svg#readme",
-  "dependencies": {},
+  "dependencies": {
+    "get-pixels": "^3.3.2"
+  },
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",

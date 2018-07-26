@@ -2,13 +2,13 @@
 
 /* global describe, it */
 
-import http from 'http';
 import assert from 'assert';
+// $FlowFixMe
+import pixelArtToSvg from './../dist';
 
-import '../dist';
-
-describe('Example Node Server', () => {
-    it('should return 200', () => {
-        assert.equal(200, 199 + 1);
+describe('Pixel Art to SVG', () => {
+    it('Convert', () => {
+        console.log('---> No test ((');
+        assert.equal(1 + 1, 2);
     });
 });
