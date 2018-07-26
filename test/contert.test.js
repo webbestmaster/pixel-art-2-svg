@@ -1,14 +1,19 @@
 // @flow
 
-/* global describe, it */
+/* global describe, it, __dirname */
 
 import assert from 'assert';
-// $FlowFixMe
-import pixelArtToSvg from './../dist';
+import path from 'path';
+import pixelArtToSvg from './../src';
+
+// eslint-disable-next-line id-match
+const CDW = __dirname;
 
 describe('Pixel Art to SVG', () => {
-    it('Convert', () => {
-        console.log('---> No test ((');
+    it('Convert', async (): Promise<void> => {
+        const svgString = await pixelArtToSvg(path.join(CDW, 'swords.png'));
+
+        console.log(svgString);
         assert.equal(1 + 1, 2);
     });
 });
