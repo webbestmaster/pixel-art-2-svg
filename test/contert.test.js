@@ -4,8 +4,9 @@
 
 import assert from 'assert';
 import path from 'path';
-import pixelArtToSvg from './../src';
 import {testPngInSvg} from './reference';
+
+const pixelArtToSvg = require('./../src');
 
 // eslint-disable-next-line id-match
 const CDW = __dirname;

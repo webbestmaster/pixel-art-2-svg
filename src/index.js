@@ -62,7 +62,7 @@ function imageDataToSvg(imageData: ImageDataType): string {
     return svgString.replace('{data}', rectList.join(''));
 }
 
-export default (async function imgToSvg(pathToImage: string): Promise<string | null> {
+module.exports = async function imgToSvg(pathToImage: string): Promise<string | null> {
     const imageData = await getImageData(pathToImage);
 
     if (!imageData) {
@@ -70,4 +70,4 @@ export default (async function imgToSvg(pathToImage: string): Promise<string | n
     }
 
     return imageDataToSvg(imageData);
-});
+};
