@@ -8,28 +8,24 @@ var _getPixels = require('get-pixels');
 
 var _getPixels2 = _interopRequireDefault(_getPixels);
 
-function _interopRequireDefault(obj) {
-    return obj && obj.__esModule ? obj : {default: obj};
-}
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function getImageData(pathToImage) {
-    return new _promise2.default(function(resolve, reject) {
-        (0, _getPixels2.default)(pathToImage, function(error, imageData) {
+    return new _promise2.default(function (resolve, reject) {
+        (0, _getPixels2.default)(pathToImage, function (error, imageData) {
             if (error !== null) {
                 reject(error);
                 return;
             }
             resolve(imageData);
         });
-    }).catch(function(error) {
+    }).catch(function (error) {
         console.error('Can not get pixels from image', pathToImage);
         console.error(error);
     });
 }
 
-var svgDefaultString =
-    '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" ' +
-    'width="{width}" height="{height}" viewBox="0 0 {width} {height}" shape-rendering="crispEdges">{data}</svg>';
+var svgDefaultString = '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" ' + 'width="{width}" height="{height}" viewBox="0 0 {width} {height}" shape-rendering="crispEdges">{data}</svg>';
 
 var rectDefaultString = '<rect x="{x}" y="{y}" width="1" height="1" fill="{fill}"/>';
 
@@ -41,7 +37,7 @@ function imageDataToSvg(imageData) {
 
     var rectList = [];
 
-    imageData.data.forEach(function(colorValue, index) {
+    imageData.data.forEach(function (colorValue, index) {
         if (index % 4 !== 0) {
             return;
         }
@@ -58,18 +54,11 @@ function imageDataToSvg(imageData) {
             return;
         }
 
-        var fillHex =
-            '#' +
-            [red, green, blue]
-                .map(function(color) {
-                    return color.toString(16).padStart(2, '0');
-                })
-                .join('');
+        var fillHex = '#' + [red, green, blue].map(function (color) {
+            return color.toString(16).padStart(2, '0');
+        }).join('');
 
-        var rectString = rectDefaultString
-            .replace('{x}', x)
-            .replace('{y}', y)
-            .replace('{fill}', fillHex);
+        var rectString = rectDefaultString.replace('{x}', x).replace('{y}', y).replace('{fill}', fillHex);
 
         rectList.push(rectString);
     });
@@ -78,7 +67,7 @@ function imageDataToSvg(imageData) {
 }
 
 module.exports = function imgToSvg(pathToImage) {
-    return getImageData(pathToImage).then(function(imageData) {
+    return getImageData(pathToImage).then(function (imageData) {
         if (!imageData) {
             return null;
         }
