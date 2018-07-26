@@ -62,12 +62,14 @@ function imageDataToSvg(imageData: ImageDataType): string {
     return svgString.replace('{data}', rectList.join(''));
 }
 
-module.exports = async function imgToSvg(pathToImage: string): Promise<string | null> {
-    const imageData = await getImageData(pathToImage);
+module.exports = function imgToSvg(pathToImage: string): Promise<string | null> {
+    return getImageData(pathToImage).then(
+        (imageData: ImageDataType | void): string | null => {
+            if (!imageData) {
+                return null;
+            }
 
-    if (!imageData) {
-        return null;
-    }
-
-    return imageDataToSvg(imageData);
+            return imageDataToSvg(imageData);
+        }
+    );
 };
