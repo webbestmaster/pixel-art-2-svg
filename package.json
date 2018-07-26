@@ -13,8 +13,7 @@
     "flow": "flow",
     "flow-stop": "flow stop",
     "prettier": "prettier --write \"./**/*.js\"",
-    "test": "mocha --require babel-core/register",
-    "svg0": "svgo ./src/swords.svg"
+    "test": "mocha --require babel-core/register"
   },
   "repository": {
     "type": "git",
