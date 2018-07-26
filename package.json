@@ -1,7 +1,16 @@
 {
   "name": "pixel-art-2-svg",
-  "version": "0.0.1",
-  "description": "pixel art to svg",
+  "version": "0.1.0",
+  "description": "pixel art to svg converter",
+  "keywords": [
+    "pixel",
+    "pixelart",
+    "pixel-art",
+    "pixel art",
+    "converter",
+    "svg",
+    "blockchain"
+  ],
   "main": "dist/index.js",
   "scripts": {
     "start": "nodemon src/index.js --exec babel-node",
@@ -19,7 +28,7 @@
     "type": "git",
     "url": "git+https://github.com/webbestmaster/pixel-art-2-svg.git"
   },
-  "author": "",
+  "author": "webbestmaster",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/webbestmaster/pixel-art-2-svg/issues"
